@@ -1,5 +1,3 @@
-let listMots = ["javascript", "python", "html"];
-let listePhrases = ["Pas de panique !", "La vie, l’univers et le reste", "Merci pour le poisson"]
 let score = 0;
 let choix = prompt("Voulez-vous tester des 'mots' ou des 'phrases' ?");
 
