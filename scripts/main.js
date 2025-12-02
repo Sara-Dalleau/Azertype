@@ -1,20 +1,24 @@
-// lancerJeu();
+/*********************************************************************************
+ * 
+ * Point d'entrée, c'est lui qui intialise le jeu et lance la boucle de jeu. 
+ * 
+ *********************************************************************************/
 
-// Récupération des éléments du DOM grâce a leur ID
-let BaliseinputEcriture = document.getElementById("inputEcriture");
-console.log(inputEcriture);
+lancerJeu()
 
-let BalisebuttonEcriture = document.getElementById("btnValiderMot");
-console.log(btnValiderMot);
+// J'ai mis ce code en commentaire, nous pourrons le récupérer lorsque nous en auront besoin :
 
-// Récupération des éléments du DOM grâce a querySelector
+// let inputEcriture = document.getElementById("inputEcriture")
+// console.log(inputEcriture)
 
-let BaliseZoneProposition = document.querySelector(".zoneProposition");
-console.log(BaliseZoneProposition);
+// let btnValiderMot = document.getElementById("btnValiderMot")
+// console.log(btnValiderMot)
 
-let BaliseZoneScore = document.querySelector(".zoneScore span");
-console.log(BaliseZoneScore);
+// let zoneProposition = document.querySelector(".zoneProposition")
+// console.log(zoneProposition)
 
-// Récupération des éléments du DOM grâce a querySelectorAll
-let BaliseOptionSource = document.querySelectorAll(".optionSource input");
-console.log(BaliseOptionSource);
+// let spanScore = document.querySelector(".zoneScore span")
+// console.log(spanScore)
+
+// let listeBtnRadio = document.querySelectorAll(".optionSource input")
+// console.log(listeBtnRadio)
