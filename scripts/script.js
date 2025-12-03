@@ -32,7 +32,17 @@ function afficherEmail(nom, email, score) {
   let mailto = `mailto:${email}?subject=Partage du score Azertype&body=Salut, je suis ${nom} et je viens de réaliser le score ${score} sur le site d'Azertype !`
   location.href = mailto
 }
+// Cette fonction gère le formulaire de partage de score.
+function gererFormulaire (scoreEmail) {
 
+  let inputText = document.getElementsById("nom")
+  let nom = inputText.value;
+
+  let inputEmail = document.getElementsById("email")
+  let email = inputEmail.value;
+  
+  afficherEmail(nom, email, scoreEmail)
+}
 
 /**
 * Cette fonction lance le jeu. 
@@ -79,53 +89,49 @@ function lancerJeu() {
         afficherProposition(listeProposition[i])
     })
 }
+let form = document.querySelector("form")
 
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+    let scoreEmail = `${score} / ${i}`
+    gererFormulaire(scoreEmail)
 
-  afficherResultat(score, i)
+})
+afficherResultat(score, i)
 }
 
+function validerNom (nom) {
+nom = nom.trim()
+if (nom.length < 2) {
+    throw new Error("Le nom est trop court")} 
+
+}
+function validerEmail (email) {
+  email = email.trim()
+  let emailRegExp = new RegExp("^[a-z0-9._-]+@[a-z0-9._-]+\\.[a-z0-9._-]+$")
+
+  if (emailRegExp.test(email)) {
+      return true;
+    } 
+    return false;
+}
 let form = document.querySelector("form")
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  let inputText = document.getElementsById("nom")
-  let nom = inputText.value;
+  let inputEmail = document.getElementById("email");
+  let inputNom = document.getElementById("nom");
 
-  let inputEmail = document.getElementsById("email")
   let email = inputEmail.value;
+  let nom = inputNom.value;
 
-  let scoreEmail = `${score} / ${i}`
-}
-)
+  let emailOk = validerEmail(email);
+  let nomOk = validerNom(nom);
 
-// let btnTheme = document.getElementById("btnTheme")
-// btnTheme.addEventListener("click", () => {
-//   let theme = document.getElementsByName("theme")
-//   let valeurcochee = ""
-//   for (let i = 0; i < theme.length; i++) {
-//     if (theme[i].checked === true) {
-//       valeurcochee = theme[i].value
-//     }
-//   }
-//   if (valeurcochee === "light") {
-//     document.body.style.backgroundColor = "white"
-//   } if (valeurcochee === "dark") {
-//     document.body.style.backgroundColor = "black"
-//   }
-//   if (valeurcochee === "blue") {
-//     document.body.style.backgroundColor = "blue"
-//   }
-// })
-
-// let btnInteret = document.getElementById("btnInteret")
-// btnInteret.addEventListener("click", () => {
-//   let caseInteret = document.getElementsByName("interet")
-//   let tableauInteret = []
-//   for (let i = 0; i < caseInteret.length; i++) {
-//     if (caseInteret[i].checked === true) {
-//       tableauInteret.push(caseInteret[i].value)
-//     }
-//   }
-//   console.log("Tu es intéressée par: "+ tableauInteret .join(", ") )
-// })
+if (nomOk && emailOk) {
+  console.log(email)
+  } else {
+    console.log("Erreur")
+  }
+})
